@@ -28,7 +28,7 @@ postgresql@14の導入を実施(既にpostgrelSQLの導入済みの場合は、�
 
 ### ③.envファイルを作成し、以下の記述を追記
 ```
-DATABASE_URL="postgresql://作成用意したロール名:ロールのパスワード@localhost:5432/データベース名
+DATABASE_URL="postgresql://作成用意したロール名:ロールのパスワード@localhost:5432/データベース名"
 ```
 
 ### ④データベース作成・マイグレーションの実施
