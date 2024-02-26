@@ -30,7 +30,7 @@ app.post("/genres", async (req, res) => {
     const savedData = await prisma.genre.create({data: req.body});
     res.json(savedData)
   } catch(error) {
-    res.send("ジャンルの保存に失敗しました",error)
+    res.status(500).send("ジャンルの保存に失敗しました")
   }
 })
 
@@ -41,7 +41,7 @@ app.delete("/genres/:id", async (req, res) => {
     await prisma.genre.delete({where:{id: genreId}})
     return res.status(200).send();
   } catch(error) {
-    res.send("ジャンルの削除に失敗しました。")
+    res.status(500).send("ジャンルの削除に失敗しました。")
   }
 })
 
@@ -68,7 +68,7 @@ app.post("/tasks", async (req, res) => {
     res.json(savedData)
   } catch(error) {
     console.log(error)
-    res.send("タスクの保存に失敗しました")
+    res.status(500).send("タスクの保存に失敗しました")
   }
 })
 
@@ -84,7 +84,7 @@ app.put("/tasks/:id", async(req, res) => {
     })
     res.json(updateData)
   } catch(error) {
-    res.send("タスクの更新に失敗しました。")
+    res.status(500).send("タスクの更新に失敗しました。")
   }
 })
 
@@ -95,7 +95,7 @@ app.delete("/tasks/:id", async(req, res) => {
     const deletedTask = await prisma.task.delete({where: {id: taskId}})
     res.json(deletedTask)
   } catch(error) {
-    res.send("タスクの削除に失敗しました")
+    res.status(500).send("タスクの削除に失敗しました")
   }
 })
 
@@ -112,7 +112,7 @@ app.put("/tasks/:id/status", async(req, res) => {
     res.json(response)
   } catch(error) {
     console.log(error)
-    res.send("ステータス変更に失敗しました。")
+    res.status(500).send("ステータス変更に失敗しました。")
   }
 
 })
